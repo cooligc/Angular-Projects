@@ -1,0 +1,78 @@
+<<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Test App</title>
+	<script type="text/javascript" src="js/lib/angular.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
+</head>
+<body>
+	<h1>Clock App</h1>
+	<div ng-controller="TimeCtrl">
+		<div> time is <span>{{time}}</span> </div>
+		<button ng-click="latestTime()">Update Me !</button>
+	</div>
+	<hr>
+	<h1>Form Elements</h1>
+	<div ng-controller="FormCtrl">
+		<h3> Elements </h3>
+		Text box : <input type="text" ng-model="name"/>
+		Text box2 : <input type="text" ng-model="name"/>
+		On Change : <input type="text" ng-change="changed()" ng-model="changeValue"/>
+
+		Group Radio 
+		<p>
+			Opt1 <input type="radio" ng-model="radio" value="opt1"/>
+			Opt2 <input type="radio" ng-model="radio" value="opt2"/>
+			Opt3 <input type="radio" ng-model="radio" value="opt3"/>
+		</p>
+
+
+		Single Check : 
+		Opt1 <input type="checkbox" ng-model="sing" value="sing"/>
+
+		<br/>
+		Date : 
+			<input type="date" ng-model="date"/>
+
+		<button ng-click="submit()">Submit</button>
+		<h3> Results </h3>
+		Name : {{name}} <br/>
+		Changed : {{msg}} --> {{changeValue}}<br/>
+		Radio : {{radio}}<br/>
+		Single Check : {{sing}}<br/>
+		Date : {{date}}
+		<br/>
+
+		{{org_msg}}
+	</div>
+
+	<hr>
+	<h1>Nested Controller</h1>
+	<div>
+		<div ng-controller="Ctrl1">
+			<span>Value : {{value}}</span>
+			<div ng-controller="Ctrl2">
+				<span> Value : {{value}}</span>
+			</div>
+
+	</div>
+	<hr>
+	<h1>ControllerAs Syntex</h1>
+	
+	<div>
+		<div ng-controller="Ctrl3 as c3">
+			<span>Value : {{c3.value}}</span>
+			<div ng-controller="Ctrl4 as c4">
+				<span> Value : {{c4.value}}</span>
+			</div>
+
+	</div>
+
+
+
+
+
+
+
+</body>
+</html>
