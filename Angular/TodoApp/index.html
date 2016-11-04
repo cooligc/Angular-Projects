@@ -1,0 +1,20 @@
+<<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Test App</title>
+	<script type="text/javascript" src="js/lib/angular.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
+</head>
+<body>
+	<div ng-controller="TodoCtrl">
+		<p>Add a task</p>
+		<input text="text" ng-model="task"/> <button ng-click="add()">Add</button>
+
+		<p>Actions</p>
+		<ul>
+			<li ng-repeat="activity in activities">{{activity}}<button ng-click="remove($index)"> delete</button></li>
+		</ul>
+
+	</div>
+</body>
+</html>
