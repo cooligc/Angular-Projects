@@ -1,0 +1,35 @@
+<<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>Test App</title>
+	<script type="text/javascript" src="js/lib/angular.js"></script>
+	<script type="text/javascript" src="js/controller2.js"></script>
+	<script type="text/javascript" src="js/controller.js"></script>
+</head>
+<body>
+	<h1>ng-show, ng-hide and ng-if</h1>
+	<div ng-controller="ShowCtrl as c1">
+		<input type="checkbox" ng-model="c1.sing"/>
+		<!-- ng-if will remove the element from the DOM-->
+		<p ng-if="c1.sing"> If has added to DOM </p>
+
+		<!-- ng-show and ng-hide : These will not remove the DOM. They will apply some css property and make the element visible or invisiable-->
+		<p ng-show="c1.sing"> ng-show applied </p>
+		<p ng-hide="!c1.sing"> ng-hide applied </p>
+
+	</div>
+	<hr>
+	<h1>Iterator</h1>
+	<div ng-controller="IterCtrl as c2">
+		<p ng-repeat="i in c2.mylist">{{i}}</p>
+		<p ng-repeat="i in c2.mylist">Hello {{i}}</p>
+
+
+		<p ng-repeat="i in c2.mylist">{{$index}}--> {{$first}}---> {{$middle}}----> {{$last}} ----> {{$even}} ----> {{$odd}}</p>
+		
+
+
+	</div>
+
+</body>
+</html>
