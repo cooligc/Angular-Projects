@@ -1,0 +1,12 @@
+{
+	"peoples":[
+		{
+			"first_name":"Sitakant",
+			"id":1,
+			"last_name":"Chaudhury",
+			"education":"B.Tech",
+			"phone":"+911234567890"
+		}
+	]
+
+}
