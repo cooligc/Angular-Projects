@@ -1,66 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>People</title>
-	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" />
-	<script type="text/javascript" src="js/lib/angular.js"></script>
-	<!--<script type="text/javascript" src="js/lib/angular-route.js"></script>-->
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
-    <script src="js/lib/angular-route-segment.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/app.routing.js"></script>
-	<script type="text/javascript" src="js/controller/people.controller.js"></script>
-	<script type="text/javascript" src="js/services/appconstant.service.js"></script>
-</head>
-<body ng-app="people">
-	<!--<div ng-controller="HeaderCtrl">{{title}}</div>-->
-	<div class="container"></div>
-	<div class="navbar">
-      <div class="navbar-inner">
-        <a class="brand" href="#index">PersonApp</a>
-        <ul class="nav">
-          <li>
-            <a href="#index">Home</a>
-          </li>
-          <li>
-            <a href="#route1">Route 1</a>
-          </li>
-          <li>
-            <a href="#route2">Route 2</a>
-          </li>
-        </ul>
+   <head>
+      <title>People</title>
+      <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/lib/v-modal.css"></link>
+      <script type="text/javascript" src="js/lib/angular.js"></script>
+      <script type="text/javascript" src="js/lib/v-modal.js"></script>
+      
+      <!--For Modal-->
+      <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+
+      <script src="js/lib/angular-route-segment.js"></script>
+      <script type="text/javascript" src="js/app.js"></script>
+      <!--<script type="text/javascript" src="js/app.routing.js"></script>-->
+      <script type="text/javascript" src="js/services/person.service.js"></script>
+      <script type="text/javascript" src="js/controller/people.controller.js"></script>
+      <script type="text/javascript" src="js/services/appconstant.service.js"></script>
+      
+      <script type="text/javascript" src="js/app.directive.js"></script>
+      <style type="text/css">
+      	.container{
+      		width: 80%;
+      	}
+      	.media-left{
+      		width: 9%;
+      	}
+
+      </style>
+   </head>
+   <body ng-app="people">
+      <!--<div ng-controller="HeaderCtrl">{{title}}</div>-->
+      <div class="container">
+         <div class="navbar">
+            <div class="navbar-inner">
+               <a class="brand" href="#index">PersonApp</a>
+               <ul class="nav">
+                  <li>
+                     <a href="#index">Home</a>
+                  </li>
+                  <li>
+                     <a href="#route1">Route 1</a>
+                  </li>
+                  <li>
+                     <a href="#route2">Route 2</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+         <button  ng-controller="AppController as app" ng-click="app.show()">Modal</button>
+
+         <h1 class="center">Wel come to Person Dummy App.</h1>
+        
+         <div ng-controller="PersonCtrl">
+            <div class="row">
+               <div class="col-xs-4">
+                  <ul class="list-group">
+                     <li class="list-group-item" ng-repeat='person in persons' ng-click="showDetails($index)">{{person.first_name + " "+ person.last_name}}
+                     </li>
+                  </ul>
+                  <button class="btn btn-default" ng-click="createForm()"> Create </button>
+               </div>
+               <div class="col-xs-8" ng-if="!isCreate">
+               	  <div class="alert alert-success" ng-if="messages"> {{messages}} </div>
+               	  <div class="alert alert-danger" ng-if="error_msg"> {{error_msg}}</div>
+               	  <button class="btn btn-default" ng-show="isEditable" ng-click="toggleButton()">Edit</button>
+               	  <button class="btn btn-default" ng-hide="isEditable" ng-click="save()">Save</button>
+                  <div class="media">
+                     <div class="media-left">
+                        <a href="#">
+                        <img class="media-object" ng-src="{{personsDetails.url}}">
+                        </a>
+                     </div>
+                     <div class="media-body">
+                        <p> Phone : <span ng-show="!isInputReady"> {{personsDetails.phone}}</span>
+                        <input type="text" ng-show="isInputReady" ng-model='personsDetails.phone'></p>
+                        <p>Education : <span ng-show="!isInputReady"> {{personsDetails.education}}</span>
+                        <input type="text" ng-show="isInputReady" ng-model='personsDetails.education'></p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xs-8" ng-if="isCreate">
+               	  <div class="alert alert-success" ng-if="messages"> {{messages}} </div>
+               	  <div class="alert alert-danger" ng-if="error_msg"> {{error_msg}}</div>
+               	  	
+               	  <div>
+					<p>Firstname : <input type="text" ng-model='person.first_name'></p>
+					<p>Lastname : <input type="text" ng-model='person.last_name'></p>
+					<p>Phone number : <input type="text" ng-model='person.education'></p>
+					<p>Education : <input type="text" ng-model='person.phone'></p>
+					<button class="btn btn-default" ng-click="saveRecord()"> Save </button>
+				</div>
+                  
+               </div>
+            </div>
+
+          
+
+         </div>
+         <hr/>
+         <div ng-controller="FooterCtrl">{{footer}}</div>
       </div>
-    </div>
-
-	
-	<h1 class="center">Wel come to Person Dummy App.</h1>
-	<div class="row">
-		 <div class="col-lg-6">
-		 	<ul class="list-group">
-		 		<li class="list-group-item">Cras justo odio</li>
-		 	</ul>
-		 </div>
-
-		 <div class="col-lg-6">
-		 	<div class="media">
-			  <div class="media-left">
-			    <a href="#">
-			      <img class="media-object" src="..." alt="...">
-			    </a>
-			  </div>
-			  <div class="media-body">
-			    <h4 class="media-heading">Media heading</h4>
-			    ...
-			  </div>
-			</div>
-
-		 </div>
-	</div>
-
-	<hr/>
-	<div ng-controller="FooterCtrl">{{footer}}</div>	
-	</div>
-</body>
+      </div>
+   </body>
 </html>

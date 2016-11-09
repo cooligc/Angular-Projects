@@ -1,12 +1,67 @@
 {
-	"peoples":[
-		{
-			"first_name":"Sitakant",
-			"id":1,
-			"last_name":"Chaudhury",
-			"education":"B.Tech",
-			"phone":"+911234567890"
-		}
-	]
-
+  "peoples": [
+    {
+      "first_name": "test",
+      "id": 1,
+      "last_name": "test",
+      "education": "B.Tech",
+      "phone": "+91444444444",
+      "url": "https://randomuser.me/api/portraits/med/men/1.jpg"
+    },
+    {
+      "first_name": "test2",
+      "id": 2,
+      "last_name": "test2",
+      "education": "BE",
+      "phone": 9155555552121,
+      "url": "https://randomuser.me/api/portraits/med/men/2.jpg"
+    },
+    {
+      "first_name": "test3",
+      "id": 3,
+      "last_name": "test3",
+      "education": "B.Tech",
+      "phone": 9166666668,
+      "url": "https://randomuser.me/api/portraits/med/men/3.jpg"
+    },
+    {
+      "first_name": "test4",
+      "id": 4,
+      "last_name": "test4",
+      "education": "B.Tech",
+      "phone": "+91777777777",
+      "url": "https://randomuser.me/api/portraits/med/men/4.jpg"
+    },
+    {
+      "first_name": "aa",
+      "last_name": "aa",
+      "education": "aa",
+      "phone": "aa",
+      "id": 5
+    },
+    {
+      "first_name": "EE",
+      "last_name": "EEE",
+      "education": "EEEE",
+      "phone": "EEE",
+      "url": "https://randomuser.me/api/portraits/med/men/37.jpg",
+      "id": 6
+    },
+    {
+      "first_name": "AAA",
+      "last_name": "AA",
+      "education": "AA",
+      "phone": "AA",
+      "url": "https://randomuser.me/api/portraits/med/men/75.jpg",
+      "id": 7
+    },
+    {
+      "first_name": "gf",
+      "last_name": "fff",
+      "education": "fff",
+      "phone": "fff",
+      "url": "https://randomuser.me/api/portraits/med/men/34.jpg",
+      "id": 8
+    }
+  ]
 }
