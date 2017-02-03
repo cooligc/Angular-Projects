@@ -1,0 +1,7 @@
+import java.util.UUID;
+String domain_id = vars.get("domain_id");
+print("IN-->"+domain_id);
+String uuid = String.valueOf(System.currentTimeMillis());
+domain_id = domain_id + uuid;
+print("-->"+domain_id);
+vars.put("domain_id",uuid);
